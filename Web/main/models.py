@@ -4,7 +4,7 @@ from django.db import models
 # Create your models here
 # Create your models here
 class Main(models.Model):
-    firs_name = models.CharField(max_length=30)
+    first_name = models.CharField(max_length=30)
     last_name = models.TextField()
     number = models.IntegerField()
     
