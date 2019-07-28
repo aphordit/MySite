@@ -3,6 +3,7 @@
 <!doctype html>
 <html lang="en">
   <head>
+    
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -12,7 +13,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <title>Hello, world!</title>
+    <title>NetRays News</title>
   </head>
   <body>
 
@@ -50,72 +51,68 @@
 
 
 
-<br/>
-<div class="container">
-<div id="demo" class="carousel slide" data-ride="carousel">
+
+ <div class="shadow-lg p-3 mb-5 bg-white rounded">
+     <div class="container">
+          <div id="demo" class="carousel slide" data-ride="carousel">
 
   <!-- Indicators -->
-  <ul class="carousel-indicators">
-    <li data-target="#demo" data-slide-to="0" class="active"></li>
-    <li data-target="#demo" data-slide-to="1"></li>
-    <li data-target="#demo" data-slide-to="2"></li>
-  </ul>
+           <ul class="carousel-indicators">
+              <li data-target="#demo" data-slide-to="0" class="active"></li>
+              <li data-target="#demo" data-slide-to="1"></li>
+             <li data-target="#demo" data-slide-to="2"></li>
+             </ul>
 
   <!-- The slideshow -->
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="{%static '1.jpg' %}" alt="Los Angeles" style="width:100%;height:500px;">
-    </div>
-    <div class="carousel-item">
-      <img src="{%static '2.jpg' %}" alt="Chicago" style="width:100%;height:500px;">
-    </div>
-    <div class="carousel-item">
-      <img src="{%static '3.jpg' %}" alt="New York" style="width:100%;height:500px;">
-    </div>
-  </div>
+           <div class="carousel-inner">
+                 <div class="carousel-item active">
+                <img src="{%static '1.jpg' %}" alt="Los Angeles" style="width:100%;height:500px;">
+             </div>
+            <div class="carousel-item">
+                <img src="{%static '2.jpg' %}" alt="Chicago" style="width:100%;height:500px;">
+             </div>
+           <div class="carousel-item">
+               <img src="{%static '3.jpg' %}" alt="New York" style="width:100%;height:500px;">
+             </div>
+           </div>
 
   <!-- Left and right controls -->
-  <a class="carousel-control-prev" href="#demo" data-slide="prev">
-    <span class="carousel-control-prev-icon"></span>
-  </a>
-  <a class="carousel-control-next" href="#demo" data-slide="next">
-    <span class="carousel-control-next-icon"></span>
-  </a>
+          <a class="carousel-control-prev" href="#demo" data-slide="prev">
+             <span class="carousel-control-prev-icon"></span>
+           </a>
+          <a class="carousel-control-next" href="#demo" data-slide="next">
+             <span class="carousel-control-next-icon"></span>
+           </a>
 
+       </div>
+   </div>
 </div>
-</div>
 
 
 
 
 
 
-
-
-
-
-
-
-<br />
-<br />
+<div class="shadow-sm p-3 mb-5 bg-white rounded ">
 <div class="container">
-  
-{%for cc in news%}
 <div class="row">
-    <div class="col-sm">
-      <div class="card" style="width:300px">
-    <img class="card-img-top" src="{{cc.news_url}}" alt="Card image" style="width:100%">
-    <div class="card-body">
-      <h4 class="card-title">{{cc.news_titel}}</h4>
-      <p class="card-text" align="justify">{{cc.news_short_txt}}</p>
-      <a href="#" class="btn btn-primary">See More</a>
-    </div>
-  </div>
-{% endfor%}
-
+ {%for cc in news%}
+    <div class="col-sm" style="width:300px">
+             <div class="shadow p-3 mb-5 bg-white rounded" style="width:330px">
+               <div class="card" style="width:300px">
+                   <img class="card-img-top" src="{{cc.news_url}}" alt="Card image" style="width:300px">
+                   <div class="card-body">
+                      <h4 class="card-title">{{cc.news_titel}}</h4>
+                      <p class="card-text" align="justify">{{cc.news_short_txt}}</p>
+                       <a href="#" class="btn btn-primary">See More</a>
+                     </div>
+                 </div>
+               </div>
+     </div>
+   {% endfor%}
 </div>
-
-
+</div>
+</div>
 
 
 
