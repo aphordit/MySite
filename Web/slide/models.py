@@ -9,4 +9,4 @@ class Slide(models.Model):
     slide_pic_url = models.TextField()
 
     def __str__(self):
-        return self.news_titel
+        return self.slide_name

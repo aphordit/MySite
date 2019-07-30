@@ -8,5 +8,5 @@ from slide.models import Slide
 
 def home(request):
     news = News.objects.all()
-    slides = Slide.object.all()
+    slides = Slide.objects.all()
     return render(request, 'home.html', {'news': news}, {'slides': slides})
