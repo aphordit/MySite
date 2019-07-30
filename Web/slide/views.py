@@ -6,4 +6,4 @@ from .models import Slide
 
 def slide_add(request):
 
-    return render(request, 'slide_add.html')
+    return render(request, 'slides_add.html')
