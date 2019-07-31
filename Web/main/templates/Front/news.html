@@ -1,0 +1,45 @@
+{% extends 'Front/master.html' %} {% load staticfiles %} {% block headblock %}
+
+<title>News</title>
+
+{% endblock %} {% block maniblock %}
+
+<div class="shadow-sm p-3 mb-5 bg-white rounded ">
+    <div class="container">
+        <div class="row">
+            {%for cc in news %}
+            <div class="col-sm" style="width:300px">
+                <div
+                    class="shadow p-3 mb-5 bg-white rounded"
+                    style="width:330px"
+                >
+                    <div class="card" style="width:300px">
+                        <img
+                            class="card-img-top"
+                            src="{{ cc.news_url }}"
+                            alt="Card image"
+                            style="width:300px"
+                        />
+                        <div class="card-body">
+                            <h4 class="card-title">{{ cc.news_titel }}</h4>
+                            <p class="card-text" align="justify">
+                                {{ cc.news_short_txt }}
+                            </p>
+                            <a href="#" class="btn btn-primary">See More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor%}
+        </div>
+    </div>
+</div>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<hr />
+{% endblock %} {% block footerblock %} {%endblock %}

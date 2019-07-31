@@ -7,6 +7,6 @@ from slide.models import Slide
 
 
 def home(request):
-    news = News.objects.all()
+    news = News.objects.all().order_by('-pk')[:3]
     slides = Slide.objects.all()
-    return render(request, 'home.html', {'news': news}, {'slides': slides})
+    return render(request, 'Front/home.html', {'news': news, 'slides': slides})
