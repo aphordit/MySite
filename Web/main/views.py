@@ -10,3 +10,8 @@ def home(request):
     news = News.objects.all().order_by('-pk')[:3]
     slides = Slide.objects.all()
     return render(request, 'Front/home.html', {'news': news, 'slides': slides})
+
+
+def dashboard(request):
+
+    return render(request, 'Back/admin/dashbord.html')

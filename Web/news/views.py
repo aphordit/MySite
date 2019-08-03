@@ -6,6 +6,15 @@ from .models import News
 
 def news_add(request):
 
+    if request.method == "POST":
+
+        news_titel = request.POST.get('news_titel')
+        news_short_txt = request.POST.get('news_short_txt')
+        news_body_txt = request.POST.get('news_body_txt')
+        b = News(news_titel=news_titel, news_short_txt=news_short_txt,
+                 news_body_txt=news_body_txt, news_pic="-", news_url="-")
+        b.save()
+        return redirect('news_admin')
     return render(request, 'Back/news_add.html')
 
 
@@ -14,3 +23,10 @@ def news(request):
     news = News.objects.all().order_by('-pk')
     print(news)
     return render(request, 'Front/news.html', {'news': news})
+
+
+def news_admin(request):
+
+    news = News.objects.all()
+    print(news)
+    return render(request, 'Back/admin/news_list.html', {'news': news})

@@ -7,4 +7,5 @@ urlpatterns = [
     url(r'', include('main.urls')),
     url(r'', include('news.urls')),
     url(r'', include('slide.urls')),
+
 ]
