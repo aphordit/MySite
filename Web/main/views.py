@@ -14,4 +14,4 @@ def home(request):
 
 def dashboard(request):
 
-    return render(request, 'Back/admin/dashbord.html')
+    return render(request, 'Back/admin/index.html')
