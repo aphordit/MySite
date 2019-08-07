@@ -21,12 +21,10 @@ def news_add(request):
 def news(request):
 
     news = News.objects.all().order_by('-pk')
-    print(news)
     return render(request, 'Front/news.html', {'news': news})
 
 
 def news_admin(request):
 
     news = News.objects.all()
-    print(news)
     return render(request, 'Back/admin/news_list.html', {'news': news})
