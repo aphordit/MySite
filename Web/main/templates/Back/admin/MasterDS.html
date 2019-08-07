@@ -841,19 +841,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                             </div>
                                                         </div>
                                                     </a>
-                                                    {% block bodyblock %}
 
-
-
-
-
-
-
-
-
-
-
-                                                    {% endblock %}
                                                     <a href="#" class="kt-notification__item">
                                                         <div class="kt-notification__item-icon">
                                                             <i class="flaticon2-bar-chart kt-font-info"></i>
@@ -1482,7 +1470,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 class="flaticon2-shelter"></i></a>
                                         <span class="kt-subheader__breadcrumbs-separator"></span>
                                         <span class="kt-subheader__breadcrumbs-separator"></span>
-                                        <a href="" class="kt-subheader__breadcrumbs-link">
+                                        <a href="/dashboard/" class="kt-subheader__breadcrumbs-link">
                                             Default Dashboard </a>
                                     </div>
                                 </div>
@@ -1596,9 +1584,14 @@ License: You must have a valid license purchased only from themeforest(the above
 
                                         <!--end:: Widgets/Quick Stats-->
                                     </div>
-                                    <div class="col-xl-6">
+                                    {% block bodyblock %}
+                                        
 
-                                        <!--begin:: Widgets/Order Statistics-->
+
+
+                                        
+                                    {% endblock %}
+                                    <div class="col-xl-6">                                        <!--begin:: Widgets/Order Statistics-->
                                         <div class="kt-portlet kt-portlet--height-fluid">
                                             <div class="kt-portlet__head">
                                                 <div class="kt-portlet__head-label">
@@ -1715,10 +1708,11 @@ License: You must have a valid license purchased only from themeforest(the above
 
                                 <!--End::Section-->
 
+                               
                                 <!--Begin::Section-->
                                 <div class="row">
                                     <div class="col-xl-6">
-
+                                       
                                         <!--begin:: Widgets/Sale Reports-->
                                         <div class="kt-portlet kt-portlet--tabs kt-portlet--height-fluid">
                                             <div class="kt-portlet__head">
