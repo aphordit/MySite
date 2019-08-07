@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "main",
     "news",
-    "slide"
+    "slide",
+    "menu"
 ]
 
 MIDDLEWARE = [
