@@ -28,3 +28,16 @@ def news_admin(request):
 
     news = News.objects.all()
     return render(request, 'Back/admin/news_list.html', {'news': news})
+
+
+def news_delete(request, pk):
+
+    delnews = News.objects.filter(pk=pk)
+    delnews.delete()
+    return redirect('news_admin')
+
+
+def news_show(request, wd):
+
+    shownews = News.objects.filter(news_titel=wd)
+    return render(request, 'Front/shownews.html', {'news': shownews})

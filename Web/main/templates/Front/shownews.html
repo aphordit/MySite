@@ -1,0 +1,32 @@
+{% extends 'Front/master.html' %} {% load staticfiles %} {% block headblock %}
+
+<title>News</title>
+
+{% endblock %} {% block maniblock %}
+
+<br />
+<br />
+<br />
+<hr />
+<br />
+<br />
+
+<div class="container">
+    <div class="row">
+        {%for cc in news %}
+        <p>
+            {{cc.news_body_txt}}
+        </p>
+        {% endfor%}
+    </div>
+</div>
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<hr />
+
+{% endblock %} {% block footerblock %} {%endblock %}

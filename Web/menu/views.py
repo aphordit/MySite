@@ -13,6 +13,5 @@ def menu_add(request):
         new_menu_item = Menu(menu_name=menu_name, menu_titel=menu_titel,
                              menu_link=menu_link)
         new_menu_item.save()
-        print(new_menu_item)
         return redirect('menu_add')
     return render(request, 'Back/menu_add.html')

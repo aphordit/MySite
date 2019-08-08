@@ -39,11 +39,36 @@
         </div>
         <div style="padding: 10px ; margin: 5px; ">
 
-            {%for cc in news%}
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">News Titel</th>
+                        <th scope="col">News Short Text</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
 
-            {{cc.news_titel}}
-            <br />
-            {% endfor%}
+
+                    {%for cc in news%}
+
+                    <tr>
+                        <th scope="row">{{cc.pk}}</th>
+                        <td>{{cc.news_titel}}</td>
+                        <td>{{cc.news_short_txt}}</td>
+                        <td><a href="{%url 'news_delete' pk=cc.pk %}"><img
+                                    src="{%static 'back/adminimage/download.jpeg'%}"
+                                    style="width: 20px ; height: 20px;">Delete</a>
+                        </td>
+                    </tr>
+
+                    <br />
+                    {% endfor%}
+
+                </tbody>
+            </table>
+
         </div>
     </div>
 
