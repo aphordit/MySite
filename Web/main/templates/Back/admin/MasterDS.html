@@ -1,4 +1,7 @@
 {% load staticfiles %}
+
+{% if user.is_authenticated %}
+
 <!DOCTYPE html>
 
 <!-- 
@@ -4193,3 +4196,12 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- end::Body -->
 
 </html>
+
+
+
+{% else %}
+
+please login
+
+
+{% endif %}

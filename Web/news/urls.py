@@ -8,4 +8,6 @@ urlpatterns = [
     url(r'^dashboard/news/delete/(?P<pk>\d+)/$',
         views.news_delete, name='news_delete'),
     url(r'^news/show/(?P<wd>.*)/$', views.news_show, name='news_show'),
+    url(r'^dashboard/news/edit/(?P<pk>\d+)/$',
+        views.news_edit, name='news_edit'),
 ]

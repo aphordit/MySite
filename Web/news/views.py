@@ -41,3 +41,21 @@ def news_show(request, wd):
 
     shownews = News.objects.filter(news_titel=wd)
     return render(request, 'Front/shownews.html', {'news': shownews})
+
+
+def news_edit(request, pk):
+    newsedite = News.objects.filter(pk=pk)
+
+    if request.method == "POST":
+
+        news_titel = request.POST.get('news_titel')
+        news_short_txt = request.POST.get('news_short_txt')
+        news_body_txt = request.POST.get('news_body_txt')
+
+        b = News.objects.get(pk=pk)
+        #b.news_titel = news_titel
+        b.news_short_txt = news_short_txt
+        b.news_body_txt = news_body_txt
+        b.save()
+        return redirect('news_admin')
+    return render(request, 'Back/news_edit.html', {'newsedite': newsedite})
