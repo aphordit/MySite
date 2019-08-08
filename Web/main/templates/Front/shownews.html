@@ -4,16 +4,12 @@
 
 {% endblock %} {% block maniblock %}
 
-<br />
-<br />
-<br />
-<hr />
-<br />
-<br />
 
-<div class="container">
+<hr />
+<div class="container" style="display: inline-block ; margin : 0 30% ; padding: 10% 1%">
     <div class="row">
         {%for cc in news %}
+        <img src="{{ cc.news_url }}" alt="{{ cc.news_titel }}">
         <p>
             {{cc.news_body_txt}}
         </p>
@@ -21,12 +17,5 @@
     </div>
 </div>
 
-
-<br />
-<br />
-<br />
-<br />
-<br />
 <hr />
-
 {% endblock %} {% block footerblock %} {%endblock %}
