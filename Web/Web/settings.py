@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     "main",
     "news",
     "slide",
-    "menu"
+    "menu",
+    "settings"
 ]
 
 MIDDLEWARE = [

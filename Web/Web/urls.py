@@ -8,5 +8,5 @@ urlpatterns = [
     url(r'', include('news.urls')),
     url(r'', include('slide.urls')),
     url(r'', include('menu.urls')),
-
+    url(r'', include('settings.urls')),
 ]
