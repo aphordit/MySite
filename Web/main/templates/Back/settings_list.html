@@ -1,15 +1,89 @@
+{% extends 'Back/admin/MasterDS.html'%} {% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>settings list</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    {% block headblock %}
+
+    <title>Settings List</title>
+    {% endblock %}
 </head>
 
 <body>
+    {% block bodyblock %}
 
+    <div class="kt-portlet kt-portlet--tabs kt-portlet--height-fluid">
+        <div class="kt-portlet__head">
+            <div class="kt-portlet__head-label">
+                <h3 class="kt-portlet__head-title">
+                    Settings Panel
+                </h3>
+            </div>
+            <div class="kt-portlet__head-toolbar">
+                <ul class="nav nav-tabs nav-tabs-line nav-tabs-bold nav-tabs-line-brand" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#kt_widget11_tab1_content" role="tab">
+                            All Settings
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#kt_widget11_tab2_content" role="tab">
+                            Last Settings
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div style="padding: 10px ; margin: 5px; ">
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">settings_name</th>
+                        <th scope="col">settings_head</th>
+                        <th scope="col">settings_title</th>
+                        <th scope="col">Delete</th>
+                        <th scope="col">Edit</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+
+                    {%for cc in settings%}
+
+                    <tr>
+                        <th scope="row">{{cc.pk}}</th>
+                        <td>{{cc.settings_name}}</td>
+                        <td>{{cc.settings_head}}</td>
+                        <td>{{cc.settings_title}}</td>
+                        <td><a href="{%url 'news_delete' pk=cc.pk %}"><img
+                                    src="{%static 'back/adminimage/delete.jpeg'%}"
+                                    style="width: 20px ; height: 20px; flat: left ;">Delete</a>
+                        </td>
+                        <td><a href="{%url 'news_edit' pk=cc.pk %}"><img src="{%static 'back/adminimage/edit.png'%}"
+                                    style="width: 20px ; height: 20px; flat: left ;">Edit</a>
+                        </td>
+                    </tr>
+
+                    <br />
+                    {% endfor%}
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+
+    {% endblock %}
+
+    <hr />
+
+    {% block footerblock %} {% endblock %}
 </body>
 
 </html>
