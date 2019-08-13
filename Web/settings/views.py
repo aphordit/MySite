@@ -6,4 +6,4 @@ from .models import Settings
 
 def settings_add(request):
 
-    return render(request, 'Back/settings_add.html')
+    return render(request, 'Back/settings_list.html')
