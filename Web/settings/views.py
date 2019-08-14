@@ -29,3 +29,9 @@ def settings_delete(request, pk):
     delsettings = Settings.objects.filter(pk=pk)
     delsettings.delete()
     return redirect('settings_show')
+
+
+def settings_item(request):
+
+    item = Settings.objects.filter(settings_titel=wd)
+    return render(request, 'Back/settings.html', {'settings': item})
