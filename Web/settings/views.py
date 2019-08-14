@@ -22,3 +22,10 @@ def settings_add(request):
         new_settings_item.save()
         return redirect('settings_show')
     return render(request, 'Back/admin/settings_add.html')
+
+
+def settings_delete(request, pk):
+
+    delsettings = Settings.objects.filter(pk=pk)
+    delsettings.delete()
+    return redirect('settings_show')
