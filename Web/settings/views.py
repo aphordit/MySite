@@ -35,3 +35,23 @@ def settings_item(request):
 
     item = Settings.objects.filter(settings_titel=wd)
     return render(request, 'Back/settings.html', {'settings': item})
+
+
+def settings_edit(request, pk):
+    settingsedite = Settings.objects.filter(pk=pk)
+
+    if request.method == "POST":
+
+        settings_name = request.POST.get('settings_name')
+        settings_pic_url = request.POST.get('settings_pic_url')
+        settings_head = request.POST.get('settings_head')
+        settings_title = request.POST.get('settings_title')
+
+        b = Settings.objects.get(pk=pk)
+        #b.settings_name = settings_name
+        b.settings_pic_url = settings_pic_url
+        b.settings_head = settings_head
+        b.settings_title = settings_title
+        b.save()
+        return redirect('settings_show')
+    return render(request, 'Back/settings_edit.html', {'settingsedite': settingsedite})

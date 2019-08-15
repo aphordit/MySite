@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     {% block headblock%}
-    <title>Edit News</title>
+    <title>Edit Settings</title>
     {% endblock %}
     <link rel="stylesheet" type="text/css" href="mystyle.css" />
 </head>
@@ -25,27 +25,29 @@
                 <ul class="nav nav-tabs nav-tabs-line nav-tabs-bold nav-tabs-line-brand" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link active" data-toggle="tab" href="#kt_widget11_tab1_content" role="tab">
-                            Edit News
+                            Edit Settings
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" data-toggle="tab" href="#kt_widget11_tab2_content" role="tab">
-                            Last News
+                            Last Settings
                         </a>
                     </li>
                 </ul>
             </div>
         </div>
         <div style=" margin: 10px;">
-            {%for cc in newsedite%}
-            <form action="{%url 'news_edit' pk=cc.pk %}" method="POST">
+            {%for cc in settingsedite%}
+            <form action="{%url 'settings_edit' pk=cc.pk %}" method="POST">
                 {% csrf_token %}
-                <label>news_titel : </label><input type=" text" value="{{cc.news_titel}}" name=news_titel
+                <label>settings_name : </label><input type=" text" value="{{cc.settings_name}}" name=settings_name
                     style="display: block;">
-                <label>news_short_txt : </label><textarea type="text" name=news_short_txt
-                    style="display: block;">{{cc.news_short_txt}}</textarea>
-                <label>news_body_txt : </label><textarea type="text" name=news_body_txt
-                    style="display: block;">{{cc.news_body_txt}}</textarea>
+                <label>settings_pic_url : </label><textarea type="text" name=settings_pic_url
+                    style="display: block;">{{cc.settings_pic_url}}</textarea>
+                <label>settings_head : </label><textarea type="text" name=settings_head
+                    style="display: block;">{{cc.settings_head}}</textarea>
+                <label>settings_title : </label><textarea type="text" name=settings_title
+                    style="display: block;">{{cc.settings_title}}</textarea>
 
                 <br>
                 <button type="submit">submit</button>
