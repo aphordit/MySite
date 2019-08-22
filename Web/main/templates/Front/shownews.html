@@ -11,6 +11,10 @@
         {%for cc in news %}
         <img src="{{ cc.news_url }}" alt="{{ cc.news_titel }}">
         <p>
+            {{cc.date}}
+        </p>
+        <hr />
+        <p>
             {{cc.news_body_txt}}
         </p>
         {% endfor%}

@@ -1,12 +1,29 @@
 from django.shortcuts import get_object_or_404, redirect, render
 from django.core.files.storage import FileSystemStorage
+import datetime
+from datetime import date
+from django.utils import timezone
+from main.dateconverter import shamsiDate
 from .models import News
 
 
 # Create your views here.
 
 def news_add(request):
-
+    now = datetime.datetime.now()
+    year = str(now.year)
+    month = now.month
+    if month < 10:
+        month = '0' + str(month)
+    else:
+        month = str(month)
+    day = now.day
+    if day < 10:
+        day = '0' + str(day)
+    else:
+        day = str(day)
+    today = shamsiDate(int(year), int(month), int(day))
+    print(today)
     if request.method == "POST":
 
         news_titel = request.POST.get('news_titel')
@@ -19,7 +36,7 @@ def news_add(request):
                 filename = fs.save(MyFile.name, MyFile)
                 url = fs.url(filename)
                 new_news_item = News(news_titel=news_titel, news_short_txt=news_short_txt,
-                                     news_body_txt=news_body_txt, news_pic=filename, news_url=url)
+                                     news_body_txt=news_body_txt, news_pic=filename, news_url=url, date=today)
                 new_news_item.save()
                 return redirect('news_admin')
             else:

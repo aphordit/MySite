@@ -45,6 +45,7 @@
                         <th scope="col">#</th>
                         <th scope="col">News Titel</th>
                         <th scope="col">News Short Text</th>
+                        <th scope="col">Date</th>
                         <th scope="col">Delete</th>
                         <th scope="col">Edit</th>
                     </tr>
@@ -58,6 +59,7 @@
                         <th scope="row">{{cc.pk}}</th>
                         <td>{{cc.news_titel}}</td>
                         <td>{{cc.news_short_txt}}</td>
+                        <td>{{cc.date}}</td>
                         <td><a href="{%url 'news_delete' pk=cc.pk %}"><img
                                     src="{%static 'back/adminimage/delete.jpeg'%}"
                                     style="width: 20px ; height: 20px; flat: left ;">Delete</a>
