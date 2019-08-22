@@ -1,4 +1,5 @@
 from django.shortcuts import get_object_or_404, redirect, render
+from django.core.files.storage import FileSystemStorage
 from .models import News
 
 
@@ -11,10 +12,21 @@ def news_add(request):
         news_titel = request.POST.get('news_titel')
         news_short_txt = request.POST.get('news_short_txt')
         news_body_txt = request.POST.get('news_body_txt')
-        new_news_item = News(news_titel=news_titel, news_short_txt=news_short_txt,
-                             news_body_txt=news_body_txt, news_pic="-", news_url="-")
-        new_news_item.save()
-        return redirect('news_admin')
+        try:
+            if str(request.FILES['MyFile'].content_type).startswith("image"):
+                MyFile = request.FILES['MyFile']
+                fs = FileSystemStorage()
+                filename = fs.save(MyFile.name, MyFile)
+                url = fs.url(filename)
+                new_news_item = News(news_titel=news_titel, news_short_txt=news_short_txt,
+                                     news_body_txt=news_body_txt, news_pic=filename, news_url=url)
+                new_news_item.save()
+                return redirect('news_admin')
+            else:
+                print("salam")
+        except:
+            print("Not Valid Upload")
+
     return render(request, 'Back/news_add.html')
 
 
@@ -33,6 +45,9 @@ def news_admin(request):
 def news_delete(request, pk):
 
     delnews = News.objects.filter(pk=pk)
+    fs = FileSystemStorage()
+    picname = News.objects.get(pk=pk).news_pic
+    fs.delete(picname)
     delnews.delete()
     return redirect('news_admin')
 
@@ -45,17 +60,36 @@ def news_show(request, wd):
 
 def news_edit(request, pk):
     newsedite = News.objects.filter(pk=pk)
-
     if request.method == "POST":
 
         news_titel = request.POST.get('news_titel')
         news_short_txt = request.POST.get('news_short_txt')
         news_body_txt = request.POST.get('news_body_txt')
 
-        b = News.objects.get(pk=pk)
-        #b.news_titel = news_titel
-        b.news_short_txt = news_short_txt
-        b.news_body_txt = news_body_txt
-        b.save()
+        try:
+
+            news = News.objects.get(pk=pk)
+            MyFile = request.FILES['MyFile']
+            fs = FileSystemStorage()
+            fs.delete(news.news_pic)
+            filename = fs.save(MyFile.name, MyFile)
+            url = fs.url(filename)
+
+            b = News.objects.get(pk=pk)
+            b.news_titel = news_titel
+            b.news_short_txt = news_short_txt
+            b.news_body_txt = news_body_txt
+            b.news_pic = filename
+            b.news_url = url
+            b.save()
+
+        except:
+
+            b = News.objects.get(pk=pk)
+            b.news_titel = news_titel
+            b.news_short_txt = news_short_txt
+            b.news_body_txt = news_body_txt
+            b.save()
+
         return redirect('news_admin')
     return render(request, 'Back/news_edit.html', {'newsedite': newsedite})

@@ -41,7 +41,7 @@
             <form action="{%url 'settings_edit' pk=cc.pk %}" method="POST">
                 {% csrf_token %}
                 <label>settings_name : </label><input type=" text" value="{{cc.settings_name}}" name=settings_name
-                    style="display: block;">
+                    style="display: block;" disabled>
                 <label>settings_pic_url : </label><textarea type="text" name=settings_pic_url
                     style="display: block;">{{cc.settings_pic_url}}</textarea>
                 <label>settings_head : </label><textarea type="text" name=settings_head

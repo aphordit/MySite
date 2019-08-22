@@ -38,7 +38,7 @@
         </div>
         <div style=" margin: 10px;">
             {%for cc in newsedite%}
-            <form action="{%url 'news_edit' pk=cc.pk %}" method="POST">
+            <form action="{%url 'news_edit' pk=cc.pk %}" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 <label>news_titel : </label><input type=" text" value="{{cc.news_titel}}" name=news_titel
                     style="display: block;">
@@ -46,7 +46,7 @@
                     style="display: block;">{{cc.news_short_txt}}</textarea>
                 <label>news_body_txt : </label><textarea type="text" name=news_body_txt
                     style="display: block;">{{cc.news_body_txt}}</textarea>
-
+                <input type="file" name="MyFile" /> {{cc.news_pic}}<br>
                 <br>
                 <button type="submit">submit</button>
             </form>

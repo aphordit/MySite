@@ -37,15 +37,14 @@
             </div>
         </div>
         <div style=" margin: 10px;">
-            <form action="{%url 'news_add' %}" method="POST">
+            <form action="{%url 'news_add' %}" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 <label>news_titel : </label><input type=" text" name=news_titel style="display: block;">
                 <label>news_short_txt : </label><textarea type="text" name=news_short_txt
                     style="display: block;"></textarea>
                 <label>news_body_txt : </label><textarea type="text" name=news_body_txt
-                    style="display: block;"></textarea>
-
-                <br>
+                    style="display: block;"></textarea><br>
+                <input type="file" name="MyFile" /> <br>
                 <button type="submit">submit</button>
             </form>
         </div>
