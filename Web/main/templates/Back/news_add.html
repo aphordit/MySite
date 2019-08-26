@@ -1,4 +1,4 @@
-{% extends 'Back/admin/MasterDS.html'%}
+{% extends 'Back/admin/MasterDS.html'%}{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,9 +11,14 @@
     {% endblock %}
     <link rel="stylesheet" type="text/css" href="mystyle.css" />
 </head>
+{% block headcontent %}
+<script src="{% static 'ckeditor/ckeditor.js' %}">
+
+</script>
+{% endblock %}
 
 <body>
-    {% block bodyblock%}
+    {% block bodyblock %}
     <div class="kt-portlet kt-portlet--tabs kt-portlet--height-fluid">
         <div class="kt-portlet__head">
             <div class="kt-portlet__head-label">
@@ -42,14 +47,29 @@
                 <label>news_titel : </label><input type=" text" name=news_titel style="display: block;">
                 <label>news_short_txt : </label><textarea type="text" name=news_short_txt
                     style="display: block;"></textarea>
-                <label>news_body_txt : </label><textarea type="text" name=news_body_txt
+                <label>news_body_txt : </label><textarea type="text" name="news_body_txt"
                     style="display: block;"></textarea><br>
+                <script>
+                    CKEDITOR.replace('news_body_txt')
+
+                </script>
+                <script type="text/javascript" src="/js/ckeditor/adapters/jquery.js"></script>
+                <script type="text/javascript">
+                    $(function () {
+                        $('#your_textarea').ckeditor({
+                            toolbar: 'Full',
+                            enterMode: CKEDITOR.ENTER_BR,
+                            shiftEnterMode: CKEDITOR.ENTER_P
+                        });
+                    });
+                </script>
                 <input type="file" name="MyFile" /> <br>
                 <button type="submit">submit</button>
             </form>
         </div>
     </div>
     {% endblock %}
+
 </body>
 
 </html>
