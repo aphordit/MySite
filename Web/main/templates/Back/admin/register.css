@@ -1,0 +1,54 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 100%;
+
+}
+form{
+    text-align: right;
+    width: 40%;
+    display: table;
+    margin: 0 auto;
+
+}
+h2{
+    padding: 5px 10px ;
+    margin-bottom: 10px;
+    font-size: 2em;
+    color: #666;
+    font-weight: 400;
+    border-bottom: 1px dashed #666;
+}
+.control{
+    padding: 5px 10px ;
+    margin: 5px;
+    position: relative;
+}
+
+input[type=text], input[type=email], input[type=tel],
+textarea,select, input[type=submit]{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #888;
+    border-radius:3px;
+}
+
+.label{
+    position: absolute;
+    top: 8px;
+    right: 20px;
+    padding: 5px;
+    color: #666;
+    background-color: transparent;
+    transition: .5s ease-in-out ;
+    
+}
+select .label{
+    background-color: transparent;
+}
+input[type=submit]{
+    background-color: #2980b9
+}
