@@ -79,7 +79,8 @@ body{
     font-size: 18px;
     display: inline-block;
     color:#ccc;
-    margin: 5px 0px 10px 10px ;
+    margin: 10px 5px 10px 10px ;
+    right: 2px;
 }
 
 .checkbox:checked + label span:after{
@@ -88,10 +89,12 @@ body{
     font-size: 18px;
     content: "\f00c";
     color: #1abc9c;
+    right: 0px;
 }
 
 
 #labelbox{
+
     padding: 0px 3px;
     margin-right: 0px 5px;
     user-select: none;
@@ -123,10 +126,11 @@ select + span:after {
     color: #888;
     border-top: 1px solid #888;
 }
-
-
-
-
+select:focus{
+    outline: none;
+    color: #444;
+    border-color: #2196f3;
+}
 
 .file input{
 	position: absolute;
@@ -191,5 +195,6 @@ input[type=submit]{
 	color: #fff;
 	background: #2196f3;
 	width: 100%;
-	border: none
+    border: none ;
+    cursor: pointer;
 }
