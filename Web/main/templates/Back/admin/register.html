@@ -1,58 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="register.css">
+    <link rel="stylesheet" type="text/css" href="register.css">
+    <link rel="stylesheet" type="text/css" href="fontawesome/css/all.css">
     <title>Register</title>
 </head>
-
 <body>
-    <form>
-        <h2>مشخصات</h2>
-        <div class="control">
-            <input type="text" id="name">
-            <label for="name" class="label">نام</label>
-        </div>
-        <div class="control">
-            <input type="email" id="email">
-            <label for="email" class="label">ایمیل</label>
-        </div>
-        <div class="control">
-            <input type="tel" id="tel">
-            <label for="tel" class="label">تلفن</label>
-        </div>
-        <h2>...... بیشتر </h2>
-        <div class="control">
-            <select name="fruit" id="fruit">
-                <option value=""></option>
-                <option value="banana">موز</option>
-                <option value="apple">سیب</option>
-                <option value="kiwi">کیوی</option>
-                <option value="Cherry">گیلاس</option>
-            </select>
-            <label for="fruit" class="label">میوه مورد علاقه</label>
-        </div>
-        <div class="control">
-            <input type="radio" id="radiobox1" class="radiobox">
-            <label for="radiobox1">آقا</label>
-            <input type="radio" id="radiobox2" class="radiobox">
-            <label for="radiobox2">خانم</label>
-        </div>
-        <div class="control">
-            <textarea id="cm"></textarea>
-            <label for="cm" class="label">نظر شما</label>
-        </div>
-        <div class="control">
-            <input type="checkbox" id="checkbox">
-            <label for="checkbox">قوانین را قبول دارم</label>
-        </div>
-        <div class="control">
-            <input type="submit" id="submit" value="ثبت">
-        </div>
-    </form>
-</body>
+    <div class="wrapper">
 
+        <form action="" class="login">
+
+            <p class="title">ثبت نام</p>
+            <p>
+                <input type="text" class="login-text" placeholder="نام کاربری">
+                <i class="fas fa-user-tie"></i>
+            </p>
+            <p>
+                <input type="password" class="login-text" placeholder="رمز عبور">
+                <i class="fas fa-lock"></i>
+            </p>
+            <p>
+                <input type="password" class="login-text" placeholder="رمز عبور">
+                <i class="fas fa-lock"></i>
+            </p>
+            <p>
+                    <input type="email" class="login-text" placeholder="ایمیل">
+                    <i class="far fa-envelope"></i>
+            </p>
+
+            <p class="selectdiv">
+                <select>
+                    <option>شهر</option>
+                    <option>مشهد</option>
+                    <option>تهران</option>
+                    <option>اصفهان</option>
+                </select>
+            </p>
+            <p class="file" title="">
+                <input type="file">
+            </p>
+            <p>
+                <input type="checkbox" class="checkbox" id="checkbox">
+                <label for="checkbox"><span></span>قوانین را قبول دارم</label>
+            </p>
+
+            <input type="submit" value="ثبت">
+        </form>
+    </div>
+</body>
+<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
 </html>
