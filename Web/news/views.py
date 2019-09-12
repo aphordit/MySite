@@ -5,11 +5,17 @@ from datetime import date
 from django.utils import timezone
 from main.dateconverter import shamsiDate
 from .models import News
-
-
+from django.contrib.auth.models import User
+from usermanager.models import Usermanager
 # Create your views here.
 
 def news_add(request):
+
+    print('11111111111111111111111111111')
+    
+    if  request.user.has_perm('news.news_add'):
+        print('okokokokokokokkokoko')
+
     now = datetime.datetime.now()
     year = str(now.year)
     month = now.month
@@ -54,13 +60,17 @@ def news(request):
 
 
 def news_admin(request):
-
+    if not request.user.is_authenticated:   
+        return redirect('privetlogin')
     news = News.objects.all()
     return render(request, 'Back/admin/news_list.html', {'news': news})
 
 
 def news_delete(request, pk):
-
+    if not request.user.is_authenticated:   
+        return redirect('privetlogin')
+    print(user.has_perm('news_delete'))
+    print(user.has_perm())
     delnews = News.objects.filter(pk=pk)
     fs = FileSystemStorage()
     picname = News.objects.get(pk=pk).news_pic
@@ -76,6 +86,8 @@ def news_show(request, wd):
 
 
 def news_edit(request, pk):
+    if not request.user.is_authenticated:   
+        return redirect('privetlogin')
     newsedite = News.objects.filter(pk=pk)
     if request.method == "POST":
 

@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     "news",
     "slide",
     "menu",
-    "settings"
+    "settings",
+    "usermanager"
 ]
 
 MIDDLEWARE = [

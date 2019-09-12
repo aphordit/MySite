@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html>
 
@@ -7,7 +8,7 @@
     <title>Login</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel="stylesheet" type="text/css" href="fontawesome/css/all.css">
-    <link rel='stylesheet' type='text/css' media='screen' href="loginstyle.css">
+    <link rel='stylesheet' type='text/css' media='screen' href="{%static 'back/loginstyle.css' %}">
 </head>
 
 <body>
@@ -17,15 +18,16 @@
 
         <div class="wrapper ">
 
-            <form action="" class="login">
+            <form action="{%url 'privetlogin' %}" class="login" method="POST">
+                {% csrf_token %}
                 <p class="title">ورود کاربر</p>
-                <img src="images/pp.jpeg">
+
                 <p>
-                    <input type="text" class="login-text" placeholder="نام کاربری">
+                    <input type="text" class="login-text" placeholder="نام کاربری" name="admin_username">
                     <i class="fas fa-user-tie"></i>
                 </p>
                 <p>
-                    <input type="password" class="login-text" placeholder="رمز عبور">
+                    <input type="password" class="login-text" placeholder="رمز عبور" name="admin_pass">
                     <i class="fas fa-lock"></i>
                 </p>
                 <p>

@@ -12,6 +12,7 @@ urlpatterns = [
     url(r'', include('slide.urls')),
     url(r'', include('menu.urls')),
     url(r'', include('settings.urls')),
+    url(r'', include('usermanager.urls')),
 ]
 
 if settings.DEBUG:

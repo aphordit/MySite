@@ -116,7 +116,7 @@ img:hover{
 .login input.login-text:focus + i {
     margin-right: 13px;
 }
-.checkbox{
+/*.checkbox{
     display: none;
    
 }
@@ -139,7 +139,7 @@ img:hover{
     color: #1abc9c;
     right: 0px;
 }
-
+*/
 
 #labelbox{
 

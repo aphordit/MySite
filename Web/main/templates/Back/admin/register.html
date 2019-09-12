@@ -13,23 +13,23 @@
 <body>
     <div class="wrapper">
 
-        <form action="" class="login">
-
+        <form action="{%url 'admin_register' %}" class="login" method="POST">
+            {% csrf_token %}
             <p class="title">ثبت نام</p>
             <p>
-                <input type="text" class="login-text" placeholder="نام کاربری">
+                <input type="text" class="login-text" placeholder="نام کاربری" name="admin_username">
                 <i class="fas fa-user-tie"></i>
             </p>
             <p>
-                <input type="password" class="login-text" placeholder="رمز عبور">
+                <input type="password" class="login-text" placeholder="رمز عبور" name="admin_pass">
                 <i class="fas fa-lock"></i>
             </p>
             <p>
-                <input type="password" class="login-text" placeholder="رمز عبور">
+                <input type="password" class="login-text" placeholder="رمز عبور" name="admin_pass2">
                 <i class="fas fa-lock"></i>
             </p>
             <p>
-                <input type="email" class="login-text" placeholder="ایمیل">
+                <input type="email" class="login-text" placeholder="ایمیل" name="email">
                 <i class="far fa-envelope"></i>
             </p>
 

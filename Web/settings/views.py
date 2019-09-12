@@ -10,7 +10,8 @@ def settings_show(request):
 
 
 def settings_add(request):
-
+    if not request.user.is_authenticated:   
+        return redirect(privetlogin)
     if request.method == "POST":
 
         settings_name = request.POST.get('settings_name')
@@ -25,7 +26,8 @@ def settings_add(request):
 
 
 def settings_delete(request, pk):
-
+    if not request.user.is_authenticated:   
+        return redirect(privetlogin)
     delsettings = Settings.objects.filter(pk=pk)
     delsettings.delete()
     return redirect('settings_show')
@@ -38,6 +40,8 @@ def settings_item(request):
 
 
 def settings_edit(request, pk):
+    if not request.user.is_authenticated:   
+        return redirect(privetlogin)
     settingsedite = Settings.objects.filter(pk=pk)
 
     if request.method == "POST":

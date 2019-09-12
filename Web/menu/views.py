@@ -5,6 +5,8 @@ from .models import Menu
 # Create your views here.
 
 def menu_add(request):
+    if not request.user.is_authenticated:   
+        return redirect(privetlogin)
     if request.method == "POST":
 
         menu_name = request.POST.get('menu_name')
