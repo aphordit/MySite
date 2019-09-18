@@ -56,7 +56,8 @@ body{
     font-size: 1em;
     color: #fff;
     transition: all .2s;
-    margin-top: -37px;
+    margin-top: 10px;
+    right:0px;
     transition: all .2s;
 }
 .login input.login-text:focus{
