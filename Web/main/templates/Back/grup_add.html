@@ -1,0 +1,13 @@
+{% extends 'Back/admin/MasterDS.html'%}{% load staticfiles %}
+
+{% block bodyblock %}
+
+
+<form action="{%url 'group_add' %}" method='POST'>
+{% csrf_token %}
+<input type="text" id='group' name='group'></input>
+<button type='submit'>submit</button>
+</form>
+
+
+                                    {% endblock %}

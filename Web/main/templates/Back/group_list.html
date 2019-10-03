@@ -1,0 +1,26 @@
+{% extends 'Back/admin/MasterDS.html'%}{% load staticfiles %}
+
+{% block bodyblock %}
+
+
+<div class="shadow-sm p-3 mb-5 bg-white rounded ">
+    <div class="container">
+        <div class="row">
+            {%for cc in group %}
+            <div class="col-sm" style="width:200px">
+                <div class="shadow p-3 mb-5 bg-white rounded" style="width:230px">
+                    <div class="card" style="width:200px">
+                        
+                        <div class="card-body">
+                            <h4 class="card-title">{{ cc.name }}</h4>
+                            <a href="" class="btn btn-primary">Add permission</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor%}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
