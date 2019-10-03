@@ -1,0 +1,201 @@
+*{
+    margin: 0;
+    padding: 0px;
+    box-sizing: border-box;
+    direction: rtl;
+}
+body{
+    min-height: 100%;
+    height: 100vh;
+    background: url(images/710239-motion-wallpapers-1920x1080-meizu.jpg) fixed;
+    background-size: cover;
+}
+
+.wrapper{
+    display: flex;
+    width: 100%;
+    min-height: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    background: rgba(4, 40, 65, .80)
+}
+
+.login{
+    border-radius: 5px;
+    padding: 20px;
+    width: 100%;
+    max-width: 320px;
+    background-color: #fff;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, .4);
+    
+}
+.title{
+    padding: 5px;
+    margin: 20px 10px 40px 100px;
+    color: #444;
+    font-size: 1.2em;
+    font-weight: 600;
+    border-bottom: 1px dashed #2196f3;
+}
+
+.login input.login-text{
+    margin-bottom: 10px;
+    padding: 10px 25px;
+    width: 100%;
+    border: 1px solid  #ddd;
+    transition: border-width .2s ease;
+    color: #ccc;
+    text-align: right;
+    border-radius: 5px;
+    position: relative;
+}
+.login input.login-text + i {
+    position: absolute;
+    margin-right: 1px;
+    font-size: 1em;
+    color: #fff;
+    transition: all .2s;
+    margin-top: 10px;
+    right:0px;
+    transition: all .2s;
+}
+.login input.login-text:focus{
+    outline: none;
+    color: #444;
+    border-color: #2196f3;
+    border-right-width: 40px;
+}
+.login input.login-text:focus + i {
+    margin-right: 13px;
+}
+.checkbox{
+    display: none;
+   
+}
+.checkbox + label span:after {
+    font-family: "Font Awesome 5 Free"; 
+    font-weight: 900; 
+    content: "\f14a";
+    font-size: 18px;
+    display: inline-block;
+    color:#ccc;
+    margin: 10px 5px 10px 10px ;
+    right: 2px;
+}
+
+.checkbox:checked + label span:after{
+    font-family: "Font Awesome 5 Free"; 
+    font-weight: bold; 
+    font-size: 18px;
+    content: "\f00c";
+    color: #1abc9c;
+    right: 0px;
+}
+
+
+#labelbox{
+
+    padding: 0px 3px;
+    margin-right: 0px 5px;
+    user-select: none;
+}
+.selectdiv{
+    position: relative;
+
+}
+select{
+    background-color: #fff;
+    margin-bottom: 10px;
+    padding: 10px 25px;
+    width: 100%;
+    border: 1px solid  #ddd;
+    transition: border-width .2s ease;
+    color: #888;
+    text-align: right;
+    border-radius: 5px;
+    -webkit-appearance: none;
+}
+
+select + span:after {
+    content: "<>";
+    font-weight: 900;
+    transform: rotate(90deg);
+    position: absolute;
+    top: 10px;
+    left: 5px;
+    color: #888;
+    border-top: 1px solid #888;
+}
+select:focus{
+    outline: none;
+    color: #444;
+    border-color: #2196f3;
+}
+
+.file input{
+	position: absolute;
+	width: 100%;
+	overflow: hidden;
+	opacity: 0;
+	cursor: pointer;
+	z-index: 1;
+}
+.file{
+	margin:  10px 0;
+	width: 100%;
+	min-width: 200px;
+	height: 30px;
+	line-height: 28px !important;
+	cursor: pointer;
+	position: relative;
+	float: right
+}
+.file:before{
+	content: 'فایلی انتخاب نشده است';
+	display: block;
+	position: absolute;
+	box-sizing: border-box;
+	width: 100%;
+	padding: 0 80px 0 10px;
+	border: 0px solid #e8eeef;
+	border-width: 2px 0 3px 3px;
+	border-radius: 3px 0 0 3px;
+	background: #fff;
+	color: #34495e;
+	font-size: 12px;
+	overflow: hidden;
+	text-align: center;
+	vertical-align: middle;
+}
+.file[title]:not([title=""]):before{
+	content: attr(title);
+	color: #162f44
+}
+.file:after{
+	content: 'انتخاب فایل';
+	display: inline-block;
+	position: relative;
+	box-sizing: border-box;
+	width: 74px;
+	height: 32px;
+	padding: 0 4px;
+	border-radius: 0 3px 3px 0;
+	background: #a0b7c5;
+	color: #fff;
+	overflow: hidden;
+	font-size: 10px;
+	font-weight: bold;
+	text-align: center;
+	vertical-align: middle;
+}
+input[type=submit]{
+    margin: 5px;
+	padding: 13px 5px;
+	text-align: center;
+	color: #fff;
+	background: #2196f3;
+	width: 100%;
+    border: none ;
+    cursor: pointer;
+}
