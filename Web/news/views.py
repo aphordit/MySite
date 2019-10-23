@@ -7,13 +7,15 @@ from main.dateconverter import shamsiDate
 from .models import News
 from django.contrib.auth.models import User
 from usermanager.models import Usermanager
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 # Create your views here.
+
 
 def news_add(request):
 
     print('11111111111111111111111111111')
-    
-    if  request.user.has_perm('news.news_add'):
+
+    if request.user.has_perm('news.news_add'):
         print('okokokokokokokkokoko')
 
     now = datetime.datetime.now()
@@ -56,18 +58,32 @@ def news_add(request):
 def news(request):
 
     news = News.objects.all().order_by('-pk')
-    return render(request, 'Front/news.html', {'news': news})
+
+    paginator = Paginator(news, 1)
+    page = request.GET.get('page')
+    try:
+        newss = paginator.page(page)
+    except PageNotAnInteger:
+        newss = paginator.page(1)
+    except EmptyPage:
+        newss = paginator.page(paginator.num_page)
+
+    b = round(len(news)/1)
+
+    lis = list(range(b))
+
+    return render(request, 'Front/news.html', {'newss': newss, 'lis': lis})
 
 
 def news_admin(request):
-    if not request.user.is_authenticated:   
+    if not request.user.is_authenticated:
         return redirect('privetlogin')
     news = News.objects.all()
     return render(request, 'Back/admin/news_list.html', {'news': news})
 
 
 def news_delete(request, pk):
-    if not request.user.is_authenticated:   
+    if not request.user.is_authenticated:
         return redirect('privetlogin')
     print(user.has_perm('news_delete'))
     print(user.has_perm())
@@ -86,7 +102,7 @@ def news_show(request, wd):
 
 
 def news_edit(request, pk):
-    if not request.user.is_authenticated:   
+    if not request.user.is_authenticated:
         return redirect('privetlogin')
     newsedite = News.objects.filter(pk=pk)
     if request.method == "POST":

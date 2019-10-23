@@ -28,9 +28,32 @@ def perm_add(request):
     if request.method == "POST":
         name = request.POST.get('perm_name')
         code = request.POST.get('perm_code')
-        content = ContentType.objects.get(app_label='main', model='Main')
+        content = ContentType.objects.get(app_label='main', model='main')
         print(name, code)
         perm = Permission.objects.create(
             name=name, codename=code, content_type=content)
         perm.save()
     return render(request, 'Back/perm_add.html')
+
+
+def perm_to_gr(request):
+    if request.method == "POST":
+        gr_name = request.POST.get('gr_name')
+        perm_name = request.POST.get('perm_name')
+        group = Group.objects.get(name=gr_name)
+        perm = Permission.objects.get(name=perm_name)
+        #print("gr = " + group + "pr = " + perm)
+        group.permissions.add(perm)
+    return render(request, 'Back/perm_to_gr.html')
+
+
+def user_to_gr(request):
+    if request.method == "POST":
+        gr_name = request.POST.get('gr_name')
+        user_name = request.POST.get('user_name')
+        group = Group.objects.get(name=gr_name)
+        user = User.objects.get(username=user_name)
+        #print("gr = " + group + "pr = " + perm)
+        print(group, user)
+        user.groups.add(group)
+    return render(request, 'Back/user_to_gr.html')

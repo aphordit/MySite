@@ -1,0 +1,14 @@
+{% extends 'Back/admin/MasterDS.html'%}{% load staticfiles %}
+
+{% block bodyblock %}
+
+
+<form action="{%url 'perm_to_gr' %}" method='POST'>
+{% csrf_token %}
+<input type="text" id='perm_name' name='perm_name'>perm:</input>
+<input type="text" id='gr_name' name='gr_name'>group</input>
+<button type='submit'>submit</button>
+</form>
+
+
+                                    {% endblock %}

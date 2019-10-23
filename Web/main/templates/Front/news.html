@@ -7,16 +7,16 @@
 <div class="shadow-sm p-3 mb-5 bg-white rounded ">
     <div class="container">
         <div class="row">
-            {%for cc in news %}
+            {%for cc in newss %}
             <div class="col-sm" style="width:300px">
                 <div class="shadow p-3 mb-5 bg-white rounded" style="width:330px">
                     <div class="card" style="width:300px">
-                        <img class="card-img-top" src="{{ cc.news_url }}" alt="Card image"
+                        <img class="card-img-top" src="{{ cc.newss_url }}" alt="Card image"
                             style="width:300px ; height: 180px;" />
                         <div class="card-body">
-                            <h4 class="card-title">{{ cc.news_titel }}</h4>
+                            <h4 class="card-title">{{ cc.newss_titel }}</h4>
                             <p class="card-text" align="justify">
-                                {{ cc.news_short_txt }}
+                                {{ cc.newss_short_txt }}
                             </p>
                             <div>
                                 {{cc.date}}
@@ -31,7 +31,53 @@
         </div>
     </div>
 </div>
+                        <div class="pagination">
+                                <span class="step-links">
+                                    {% if newss.has_previous %}
+                                        <a  class="pagination" href="?page={{ newss.previous_page_number}}">per</a>
+                                    {%endif%}
+                                    
+                                        <span class="current">
+                                            صفحه{{ newss.number}} از {{ newss.paginator.num_pages }}
+                                        </span>
+                                        
+                                        {% if newss.has_next %} 
+                                            <a  href="?page={{ newss.next_page_number}}">next</a>   
+                                        {% endif %}
+                                </span>
+                            </div>
 
+
+
+
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+    <li class="page-item ">
+        {% if newss.has_previous %}
+        <a  class="pagination page-link" href="?page={{ newss.previous_page_number}}">Per</a>
+        {% endif%}
+    </li>
+   
+
+
+
+
+    {% for i in lis %}
+    <li class="page-item"><a class="page-link" href="?page={{ forloop.counter }}">{{ forloop.counter }}</a></li>
+    {% endfor %}
+
+
+
+
+    
+    <li class="page-item">
+    {% if newss.has_next %} 
+    <a class="page-link" href="?page={{ newss.next_page_number}}">Next</a>
+    {% endif %}
+    </li>
+  </ul>
+</nav>
 <br />
 <br />
 <br />
@@ -39,4 +85,5 @@
 <br />
 
 <hr />
+
 {% endblock %} {% block footerblock %} {%endblock %}
