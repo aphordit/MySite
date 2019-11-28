@@ -1,0 +1,43 @@
+{% load humanize %}
+{% load qr_code %}
+{% for cc in menu%}
+           {{cc.menu_name}}
+           <br>
+                {% for ee in submenu%}
+                   
+              
+                        {% if ee.menu_id == cc.pk %}
+                        
+                        {% if forloop.first %}
+                        {{ee.sub_name}} first
+                        {% else %}
+                            {{ee.sub_name}}    
+                        {% endif %}
+                        <br>
+                        {% endif %}
+                        
+                   
+                {% endfor%}
+           <br>
+{% endfor%}
+
+{{rand|intcomma}}
+<br>
+<br>
+{{randnewsname}}
+<br>
+<br>
+{{fill}}
+<br>
+<br>
+{{tilname}}
+<br>
+<br>
+{% qr_from_text rand size=30 border=6 %}
+<br>
+<br>
+{{ ip }}
+{{ is_routable }}
+<br>
+<br>
+{{country}}

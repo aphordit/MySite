@@ -12,6 +12,9 @@ class News(models.Model):
     date = models.TextField(default="_")
     news_short_txt = models.TextField()
     news_body_txt = models.TextField()
+    menu_id = models.IntegerField(default=5)
+    submenu_id = models.IntegerField(default=6)
+    rand = models.IntegerField(default=0)
 
     def __str__(self):
         return self.news_titel

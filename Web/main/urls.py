@@ -2,7 +2,7 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-    url(r'^$', views.home, name='home'),
+    url(r'^$', views.home2, name='home2'),
     url(r'^dashboard/$', views.dashboard, name='dashboard'),
     url(r'^login/$', views.privetlogin, name='privetlogin'),
     url(r'^register/$', views.admin_register, name='admin_register'),

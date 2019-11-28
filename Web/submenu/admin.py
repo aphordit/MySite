@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Menu
+from .models import Submenu
 from django.contrib.auth.models import Permission
 # Register your models here.
-admin.site.register(Menu)
+admin.site.register(Submenu)

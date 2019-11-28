@@ -41,8 +41,12 @@ INSTALLED_APPS = [
     "news",
     "slide",
     "menu",
+    "submenu",
     "settings",
-    "usermanager"
+    "usermanager",
+    "django.contrib.humanize",
+    "qr_code",
+    "django_crontab"
 ]
 
 MIDDLEWARE = [
@@ -137,3 +141,8 @@ EMAIL_HOST_USERS = 'test@aigroup.tech'
 EMAIL_HOST_PASSWORD = 'arash!@#$56'
 EMAIL_PORT = 587
 email_user = 'test@aigroup.tech'
+
+
+CRONJOBS = [
+    ('*/1 * * * *', 'main.cron.My_job')
+]

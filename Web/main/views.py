@@ -8,7 +8,12 @@ from settings.models import Settings
 from usermanager.models import Usermanager
 from django.conf import settings
 from django.core.mail import send_mail
-
+from menu.models import Menu
+from submenu.models import Submenu
+import random
+import string
+from ipware import get_client_ip
+from ip2geotools.databases.noncommercial import DbIpCity
 # Create your views here.
 
 
@@ -19,11 +24,32 @@ def home(request):
 
     subject = 'KarafarinShow'
     message = 'txt'
-    email_from = settings.email_user
-    recipient_list = ['bahreinifoad@gmail.com', ]
-    send_mail(subject, message, email_from, recipient_list)
+    # email_from = settings.email_user
+    # recipient_list = ['bahreinifoad@gmail.com', ]
+    # send_mail(subject, message, email_from, recipient_list)
 
     return render(request, 'Front/home.html', {'news': news, 'slides': slides, 'settings': settings})
+
+
+def home2(request):
+    menu = Menu.objects.all()
+    submenu = Submenu.objects.all()
+    rand = ''
+    for i in range(100):
+        rand = rand + random.choice(string.ascii_letters)
+    count = News.objects.count()
+    randnewsname = News.objects.all()[random.randint(0, count-1)]
+    rand = random.randint(1000000000, 9999999999)
+    fill = News.objects.filter(date__gte='1398/01/02', date__lte='1398/07/02')
+    tilname = News.objects.filter(news_titel__contains='شی')
+    ip, is_routable = get_client_ip(request)
+    country = "-"
+    try:
+        response = DbIpCity.get('5.190.112.0', api_key='free')
+        country = response.country + "|" + response.city
+    except:
+        print('not ssssssssssssssssssssssssssssssssssssssssssssss')
+    return render(request, 'Front/home2.html', {'menu': menu, 'submenu': submenu, 'rand': rand, 'randnewsname': randnewsname, 'fill': fill, 'tilname': tilname, 'ip': ip, 'is_routable': is_routable, 'country': country})
 
 
 def dashboard(request):

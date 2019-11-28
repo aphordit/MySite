@@ -8,6 +8,10 @@ from .models import News
 from django.contrib.auth.models import User
 from usermanager.models import Usermanager
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from menu.models import Menu
+from submenu.models import Submenu
+import random
+
 # Create your views here.
 
 
@@ -17,6 +21,8 @@ def news_add(request):
 
     if request.user.has_perm('news.news_add'):
         print('okokokokokokokkokoko')
+
+    submenu = Submenu.objects.all()
 
     now = datetime.datetime.now()
     year = str(now.year)
@@ -37,14 +43,23 @@ def news_add(request):
         news_titel = request.POST.get('news_titel')
         news_short_txt = request.POST.get('news_short_txt')
         news_body_txt = request.POST.get('news_body_txt')
+        submenu_id = request.POST.get('menu_id')
+        rand = str(random.randint(1000, 9999))
+        tt = today.replace('/', "")
+        rand = tt + rand
+        while len(News.objects.filter(rand=rand)) != 0:
+            rand = random.rand(1000, 9999)
+            rand = tt + rand
+        print(rand)
         try:
             if str(request.FILES['MyFile'].content_type).startswith("image"):
                 MyFile = request.FILES['MyFile']
                 fs = FileSystemStorage()
                 filename = fs.save(MyFile.name, MyFile)
                 url = fs.url(filename)
+                menu_id = Submenu.objects.get(pk=submenu_id).menu_id
                 new_news_item = News(news_titel=news_titel, news_short_txt=news_short_txt,
-                                     news_body_txt=news_body_txt, news_pic=filename, news_url=url, date=today)
+                                     news_body_txt=news_body_txt, news_pic=filename, news_url=url, date=today, menu_id=menu_id, submenu_id=submenu_id, rand=rand)
                 new_news_item.save()
                 return redirect('news_admin')
             else:
@@ -52,7 +67,7 @@ def news_add(request):
         except:
             print("Not Valid Upload")
 
-    return render(request, 'Back/news_add.html')
+    return render(request, 'Back/news_add.html', {'submenu': submenu})
 
 
 def news(request):

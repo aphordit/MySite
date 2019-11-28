@@ -25,17 +25,21 @@
                 <ul class="nav nav-tabs nav-tabs-line nav-tabs-bold nav-tabs-line-brand" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link active" data-toggle="tab" href="#kt_widget11_tab1_content" role="tab">
-                            Add Menu Item
+                            Add SubMenu
                         </a>
                     </li>
                 </ul>
             </div>
         </div>
         <div style=" margin: 10px;">
-            <form action="{%url 'menu_add' %}" method="POST">
+            <form action="{%url 'submenu_add' %}" method="POST">
                 {% csrf_token %}
-                <label>menu_name : </label><input type=" text" name=menu_name style="display: block;">
-                
+                <label>sub_name : </label><input type=" text" name='sub_name' style="display: block;">
+                <label>menu_name : </label> <select name='menu_id'>
+                    {% for cc in menu %}
+                    <option value='{{cc.pk}}'>{{cc.menu_name}}</option>
+                    {% endfor%}
+                    </select>
                 <br>
                 <button type="submit">submit</button>
             </form>
